@@ -38,3 +38,13 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
         color=alt.Color("idx", legend=None, scale=alt.Scale()),
         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
     ))
+
+
+pd_data = pd.read_pickle(filepath_or_buffer='./pd_data.pkl')
+
+option = st.selectbox(
+        'Select a companyID',
+        pd_data.index.levels[0])
+
+st.write(f'You selected companyID: {option}')
+
